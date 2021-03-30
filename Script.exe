@@ -1,1 +1,52 @@
 
+from math import*
+from random import*
+import time
+#création de l'axe abscisse et ordonné entre 1 et 100
+x=randint(1,100)
+y=randint(1,100)
+c=int(input("Maintenant, saisissez l'abscisse de votre bateau"))
+#placement du bateau pour l'axe abscisse
+z=int(input("Maintenant, saisissez l'ordonné de votre bateau"))
+#placement du bateau pour l'axe ordonné
+raté=0
+time.sleep(1)
+#Nombre de chance que l'utilisateur aura, 5
+for i in range(5):
+    a=int(input('Trouver le bateau Caché, saisir abscisse'))
+    b=int(input('Trouver le bateau Caché, saisir ordonné'))
+    d=sqrt((a-x)2+(b-y)2)
+    #distance
+#si Distance est inférieur à 10, sinon
+    if d < 10:
+        print("Bravo vous avez trouvez le bateau")
+        break
+    else:
+        print(d)
+        raté=raté+1
+    print("Vous avez raté",raté,"fois") #print le nombre de fois raté
+#si la distance à été trop raté, une erreur
+else:
+    print("Le bateau était  a l'emplacement",x,y)
+raté1=0 #nombre de fois que l'ordinateur aurait raté de missile
+for i in range(5): #même chose pour l'utilisateur
+    p=randint(1,100)
+    o=randint(1,100)
+    d1=sqrt((p-c)2+(o-z)2)
+    if d1 < 10:
+        print("Dommage l'ordi a trouvé le bateau")
+        break
+    else:
+        print("Ordinateur est à",d1,"mètres de votres bateau")
+        raté1=raté1+1
+        time.sleep(1) #meilleur vision du programme, l'ordinateur aura le temps de réflechir
+    print("Ordi a raté",raté1,"fois")
+else:
+    print("Ordi n'a pas trouvé le bateau a votre emplacement",c,z)
+
+if raté > raté1:
+    print("L'ordinateur GAGNE")
+if raté==raté1:
+    print("Egalité Homme et Machine")
+if raté < raté1:
+    print("Vous avez Gagner")
